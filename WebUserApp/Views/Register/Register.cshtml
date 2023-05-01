@@ -1,0 +1,44 @@
+﻿@model WebUserApp.Models.RegistrationModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Login</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register" asp-controller="Register">
+            
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" placeholder="example@email.com" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label pwd"></label>
+                <input asp-for="password" class="form-control" placeholder="Password" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>    
+            <div class="form-group">
+                <label asp-for="username" class="control-label"></label>
+                <input asp-for="username" class="form-control" placeholder="./Adam" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="firstName" class="control-label"></label>
+                <input asp-for="firstName" class="form-control" placeholder="Adam" />
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="lastName" class="control-label"></label>
+                <input asp-for="lastName" class="form-control" placeholder="Jantula" />
+                
+            </div>
+            <div asp-validation-summary="All" class="text-danger "></div>
+            <div class="form-group">
+                <input type="submit" value="Let Me IN" class="btn btn-primary mt-2" />
+            </div>
+        </form>
+    </div>
+</div>

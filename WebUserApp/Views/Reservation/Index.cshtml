@@ -1,0 +1,65 @@
+﻿@using DataLayer;
+@using DataLayer.DatabaseEntites;
+
+@{
+    ViewData["Title"] = "AllPlaces";
+    string type = "All";
+}
+
+<h1>All Places</h1>
+
+@*viewbag*@
+
+@*easy filter by Type*@
+@*
+<div class="dropdown"> 
+    <select id="selectedType" class="btn btn-secondary dropdown-toggle mb-4 mt-4">
+       @foreach (string item in ViewBag.types)
+       {
+            <option value="@item">@item</option>
+       }
+    </select>
+    
+</div>
+that was try to make filter by type but its just lot of javascript
+*@
+@if(type == "All")
+{
+    
+    foreach (Place item in ViewBag.allplaces)
+    {
+        
+        <div class="card mt-3" style="">
+            <div class="card-head bg-primary">
+                <h5 class="card-title m-2">@item.Type</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Price: @item.Price</p>
+                <p class="card-text">Description: @(item.Description ?? "¯\\_(ツ)_/¯")</p>
+                @if(UserSingleton.Instance.loggedUser != null){
+                    <a href="@Url.Action("Reserve", "Reservation", new {id = item.ID})" class="btn btn-primary">Reserve</a>
+                }
+            </div>
+        </div>
+        
+    }
+}
+else
+{
+    foreach (Place item in ViewBag.allplaces)
+    {
+        if (item.Type == type)
+        {
+            
+            <div class="card" style="">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Type</h5>
+                    <p class="card-text">@item.Price</p>
+                    <p class="card-text">@item.Description</p>
+                    <a href="@Url.Action("Reserve", "Reservation", new {id = item.ID})" class="btn btn-primary">Reserve</a>
+                </div>
+            </div>
+            
+        } 
+    }
+}

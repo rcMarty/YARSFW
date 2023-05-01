@@ -1,0 +1,45 @@
+﻿@using DataLayer;
+@using DataLayer.DatabaseEntites;
+
+@model WebUserApp.Models.ReservationModel
+
+@{
+    ViewData["Title"] = "Reserve";
+    Place place = ViewBag.place;
+    
+
+}
+
+<h1>Your Wellness</h1>
+
+<form asp-action="NewReservation" asp-controller="Reservation" method="post">
+<input type="hidden" asp-for="PlaceID" value="@place.ID" class="control-label"></input>
+<div class="card" style="">
+    <div class="card-body">
+        <h5 class="card-title">@place.Type</h5>
+        <p class="card-text">Price: @(place.Price == null ? "¯\\_(ツ)_/¯" : @place.Price)</p>
+        <p class="card-text">About this Wellness: @(place.Description == null ? "¯\\_(ツ)_/¯" : place.Description) </p>
+        <p class="card-text">Temperature: @(place.Temperature == null ? "¯\\_(ツ)_/¯" : place.Temperature)</p>
+        <p class="card-text">Intensity: @(place.Intensity == null ? "¯\\_(ツ)_/¯" : place.Intensity)</p>
+        <p class="card-text">How wet is this place: @(place.Humidity == null ? "¯\\_(ツ)_/¯" : place.Humidity)</p>
+        <p class="card-text">How many ppl can be there: @(place.Capacity == null ? "¯\\_(ツ)_/¯" : place.Capacity)</p>
+        <p class="card-text">How big is it: @(place.Volume == null ? "¯\\_(ツ)_/¯" : place.Volume)</p>
+
+        <div class="form-group">
+            <label asp-for="StartTime" class="control-label"></label>
+            <input data-provide="datepicker" type="datetime-local" asp-for="StartTime" placeholder="@DateTime.Now"> </input>
+            <span asp-validation-for="StartTime" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Duration" class="control-label"></label>
+            <input asp-for="Duration" class="form-control" placeholder="30" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" value="I'm IN'" class="btn btn-primary mt-2" />
+        </div>
+    </div>
+</div>
+</form>

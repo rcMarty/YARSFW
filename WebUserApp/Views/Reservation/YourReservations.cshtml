@@ -1,0 +1,34 @@
+﻿@using DataLayer;
+@using DataLayer.DatabaseEntites;
+
+@{
+    ViewData["Title"] = "AllPlaces";
+    string type = "All";
+    
+}
+
+<h1>Your Reserved Wellness Things</h1>
+
+
+@foreach (Reservation item in ViewBag.reservations)
+    {
+        
+        <div class="card" style="">
+            <div class="card-head bg-primary">
+                <h5 class="card-title m-2">@item.Place.Type</h5>
+            </div>
+            <div class="card-body">
+                
+                <p class="card-text">Price: @(item.Place.Price == null ? "¯\\_(ツ)_/¯" : @item.Place.Price)</p>
+                <p class="card-text">About this Wellness: @(item.Place.Description == null ? "¯\\_(ツ)_/¯" : item.Place.Description) </p>
+                <p class="card-text">Temperature: @(item.Place.Temperature == null ? "¯\\_(ツ)_/¯" : item.Place.Temperature)</p>
+                <p class="card-text">Intensity: @(item.Place.Intensity == null ? "¯\\_(ツ)_/¯" : item.Place.Intensity)</p>
+                <p class="card-text">How wet is this place: @(item.Place.Humidity == null ? "¯\\_(ツ)_/¯" : item.Place.Humidity)</p>
+                <p class="card-text">How many ppl can be there: @(item.Place.Capacity == null ? "¯\\_(ツ)_/¯" : item.Place.Capacity)</p>
+                <p class="card-text">How big is it: @(item.Place.Volume == null ? "¯\\_(ツ)_/¯" : item.Place.Volume)</p>
+                <p class="card-text">WHEN IT STARTS: @item.StartTime </p>
+                <a href="@Url.Action("Cancel", "Reservation", new{id = item.ID} )" class="btn btn-danger">Cancel Reservation</a>
+            </div>
+        </div>
+        
+    }
