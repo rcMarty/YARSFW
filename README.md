@@ -9,7 +9,8 @@
 
 ## WPF Desktop App
 ### Todo 
-- [ ] async programming and Threads
+- [x] async programming and Threads
+  - hehe jumpscare
 - [x] New reservation with foreign key
 - [ ] Redesign WPF app 
 
