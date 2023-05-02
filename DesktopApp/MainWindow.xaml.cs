@@ -229,7 +229,8 @@ namespace DesktopApp
             Thread t = new Thread(() => 
             {
                 Random rnd = new Random();
-                Thread t2 = new Thread(() => { Thread.Sleep(rnd.Next(1000, 7000)); MessageBox.Show("boo"); }); //it looks cursed but it is what it is
+                int jumpscare = rnd.Next(1000, 10000);
+                Thread t2 = new Thread(() => { Thread.Sleep(jumpscare); MessageBox.Show($"BOOO\n(jumpscare after {jumpscare} miliseconds)" ); }); //it looks cursed but it is what it is
                 t2.Start();
                 ExportToJson(tableDataAllTables); 
 
