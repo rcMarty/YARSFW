@@ -27,7 +27,7 @@ using System.Collections;
 
 namespace DataLayer
 {
-    public class Mapper
+    internal class Mapper
     {
         public static T MapRow<T>(DataRow row)
         {
@@ -36,7 +36,7 @@ namespace DataLayer
             
             foreach (PropertyInfo property in properties)
             {
-                object? value = row[GetName(property)];
+                object? value = row[SqlGenerators.GetName(property)];
 
                 if (IsWhatever.IsForeignKey(property))
                 {
@@ -65,16 +65,6 @@ namespace DataLayer
             Console.WriteLine(entry);
             return entry;
         }
-
-        private static string GetName(PropertyInfo prop)
-        {
-            if(IsWhatever.IsName(prop, out string name))
-                return name;
-            return prop.Name;
-        }
-
-
-        
 
     }
     
