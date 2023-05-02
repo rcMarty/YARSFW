@@ -19,7 +19,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             //// Create a new user
             //User user = new User()
             //{
-                
+
             //    UserName = "pepega1",
             //    Email = "idk@aa.cz",
             //    Password = "123456",
@@ -57,8 +57,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
             //    StartTime = DateTime.Now,
             //    Place = sauna,
             //    User = user,
-                
-                
+
+
             //};
 
 
@@ -175,7 +175,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             //    Console.WriteLine("____________________________________________________________________________");
             //}
 
-            
+            Console.WriteLine(DBConfig.ConnectionString);
 
 
 

@@ -33,7 +33,7 @@ namespace DesktopApp
         {
             Dictionary<string, string> loginData = new Dictionary<string, string>();
             loginData.Add("username", TBUsername.Text);
-            loginData.Add("password", TBPassword.Text);
+            loginData.Add("password", TBPassword.Password);
             List<User> aa = DBConnection.Select<User>(loginData);
             if(aa.Count == 1)
             {   

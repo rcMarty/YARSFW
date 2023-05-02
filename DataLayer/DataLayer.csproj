@@ -10,4 +10,12 @@
     <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\Marty\OneDrive - VSB-TUO\Dokumenty\_Škola\4_Semestr\C#\projekt\DataLayer\DataLayer\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Marty\OneDrive - VSB-TUO\Dokumenty\_Škola\4_Semestr\C#\projekt\DataLayer\DataLayer\.editorconfig" />
+  </ItemGroup>
+
 </Project>

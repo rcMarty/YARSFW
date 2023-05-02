@@ -29,13 +29,23 @@ namespace DataLayer
         private static string CopyDB()
         {
             //get path to the db which is in folder assets where .sln of this project is
-            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "assets", "Wellness.db");
-            Console.WriteLine(path);
+            string path = Directory.GetCurrentDirectory();
+
+           
+            Console.WriteLine("searching:" + Directory.GetFiles(path, "*.sln").Length);
+            while (Directory.GetFiles(path, "*.sln").Length == 0)
+            {
+                //path = Directory.GetParent(path);
+                Console.WriteLine("WHere am I?:" + path);
+                path = Path.Combine(Directory.GetParent(path).FullName);
+            }
+
+            Console.WriteLine("Where is db source file: " + path + "Wellness.db");
             string executepath = Path.Combine(Directory.GetCurrentDirectory(), "Wellness.db");
+            Console.WriteLine("Where will be DB copied" + executepath);
             //check if db exists
             if (File.Exists(executepath)) 
             {
-                Console.WriteLine(executepath);
                 return executepath;
             }
 
