@@ -31,8 +31,9 @@ namespace DataLayer
     public class DBConnection
     {
         //private const string connString = "Data Source=database.db;";
-        private const string connString = "Data Source=C:\\Users\\Marty\\OneDrive - VSB-TUO\\Dokumenty\\_Škola\\4_Semestr\\C#\\projekt\\DataLayer\\DesktopApp\\bin\\Debug\\net6.0-windows\\database.db"; //this is for desktop
-                                                                                                                                                                                                         //private const string connString = "Data Source=C:\\Users\\rc_marty\\OneDrive - VSB-TUO\\Dokumenty\\_Škola\\4_Semestr\\C#\\projekt\\DataLayer\\DesktopApp\\bin\\Debug\\net6.0-windows\\database.db"; //this is for notebook
+        //private const string connString = "Data Source=C:\\Users\\Marty\\OneDrive - VSB-TUO\\Dokumenty\\_Škola\\4_Semestr\\C#\\projekt\\DataLayer\\DesktopApp\\bin\\Debug\\net6.0-windows\\database.db"; //this is for desktop
+        //private const string connString = "Data Source=C:\\Users\\rc_marty\\OneDrive - VSB-TUO\\Dokumenty\\_Škola\\4_Semestr\\C#\\projekt\\DataLayer\\DesktopApp\\bin\\Debug\\net6.0-windows\\database.db"; //this is for notebook
+        private static string connString = "Data Source=" + DBConfig.ConnectionString;
 
         public static void CreateDatabase()
         {

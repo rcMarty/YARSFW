@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopApp", "DesktopApp\De
 		{85DED61C-2FFC-45C8-947B-03D0E503808C} = {85DED61C-2FFC-45C8-947B-03D0E503808C}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUserApp", "WebUserApp\WebUserApp.csproj", "{BDA19C47-DF18-406C-A18B-88243C44051F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUserApp", "WebUserApp\WebUserApp.csproj", "{BDA19C47-DF18-406C-A18B-88243C44051F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,8 +3,9 @@
 - [x] Use reflection
 - [x] Custom ORM
 
-- [ ] Refactoring SQL command generators
-- [ ] Config for Database
+- [x] Refactoring SQL command generators
+  - kinda
+- [x] Config for Database
 
 ## WPF Desktop App
 ### Todo 
