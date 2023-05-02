@@ -22,6 +22,9 @@ using DataLayer.DatabaseEntites;
 using System.CodeDom;
 using System.Diagnostics;
 using System.Threading;
+using System.Text.Json;
+using Microsoft.Win32;
+using System.IO;
 
 namespace DesktopApp
 {
@@ -218,6 +221,45 @@ namespace DesktopApp
                 GetTables();
                 DGTableView.ItemsSource = tableDataAllTables[(Type)CBSelectTables.SelectedItem ?? typeof(User)];
             }
+        }
+
+        private void BExport_Click(object sender, RoutedEventArgs e)
+        {
+            //export in new thread to json
+            Thread t = new Thread(() => 
+            {
+                Random rnd = new Random();
+                Thread t2 = new Thread(() => { Thread.Sleep(rnd.Next(1000, 7000)); MessageBox.Show("boo"); }); //it looks cursed but it is what it is
+                t2.Start();
+                ExportToJson(tableDataAllTables); 
+
+            });
+            t.Start();
+        }
+
+        public async void ExportToJson(Dictionary<Type, ObservableCollection<object>> currentDb)
+        {
+            List<object> reservations = new List<object>();
+
+            foreach (var keyvalue in currentDb)
+            {
+                foreach (object row in keyvalue.Value)
+                {
+                    reservations.Add(row);
+                }
+            }
+
+            //save to file
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Json file (*.json)|*.json";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                using (FileStream stream = File.Create(saveFileDialog.FileName))
+                {
+                    await JsonSerializer.SerializeAsync(stream, reservations);
+                }
+            }
+            MessageBox.Show("Exported to json");
         }
     }
 }
