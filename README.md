@@ -13,6 +13,7 @@
   - hehe jumpscare
 - [x] New reservation with foreign key
 - [ ] Redesign WPF app 
+  - nah its good to go
 
 ## ASP.NET MVC app
 ### Todo 
