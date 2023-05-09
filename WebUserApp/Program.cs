@@ -11,7 +11,7 @@ namespace WebUserApp
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            DBConfig.ConnectionString = "C:\\Users\\Marty\\OneDrive - VSB-TUO\\Dokumenty\\_Škola\\4_Semestr\\C#\\projekt\\DataLayer\\assets\\Wellness.db"; // use your own path to database
+            DBConfig.ConnectionString = ""; // use your own path to database
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
